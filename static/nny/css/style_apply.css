@@ -1,0 +1,156 @@
+#create{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 20px;
+}
+.create{
+    cursor: pointer;
+}
+.apply{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    box-sizing: border-box;
+}
+.apply-type1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+}
+.btn{
+  padding: 10px 60px;
+  background-color: #f1356f;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 500;
+  border-radius: 30px;
+  color: #ffffff;
+}
+.btn:hover {
+  color: #686060;
+}*/
+.type{
+    /*margin-left: 400px;
+    margin-right: auto;*/
+    margin: auto;
+    padding-top: 20px;
+}
+a{
+    color: #ffffff;
+    text-decoration: none;
+  }
+a:hover{
+    color: #686060;
+}
+.popup {
+    width: 400px;
+    background-color: #fff;
+    border-radius: 6px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+}
+
+
+@media (min-width: 10px) and (max-width: 752px) {
+  .popup {
+    width: 300px;
+    font-size: 0.9rem;
+    
+}
+
+}
+
+
+.open-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(1);
+}
+h2{
+    margin-top: 20px;
+}
+#more:hover{
+    text-decoration: underline;
+}
+.crete{
+    color: #ffffff;
+    background-color: rgb(7, 185, 121);
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 5px;
+  }
+  .crete:hover{
+    color: #686060;
+  }
+  .close{
+    position: absolute;
+    top: 0;
+    right: 14px;
+    font-size: 42px;
+    transform: rotate(45deg);
+    cursor: pointer;
+  }
+
+  .fee-form{
+    border-radius: 7px;
+    border: 1 solid rgba(0, 0, 0, .125);
+    transition: all .5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    background-clip: border-box;
+    padding: 10px;
+    margin: auto;
+    width: 500px;
+    height: 590px;
+    background-color: #ffffff0a;
+    box-shadow: -1px 4px 28px 0px #000000bf; 
+    font-size: 16px;
+    color: #ffffff;
+  }
+@media (min-width: 0px) and (max-width: 560px) {
+  .fee-form{
+    width: 400px;
+  }
+}
+@media (min-width: 0px) and (max-width: 530px) {
+  .apply-type1 {
+    flex-direction: column;
+  }
+ /* .popup{
+    width: 200px;
+  }*/
+  .fee-form{
+    height: 590px;
+  }
+  .wes{
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+  }
+  .met{
+    margin-left: 20px;
+  }
+}
+@media (min-width: 0px) and (max-width: 450px) { 
+  .fee-form{
+    width: 300px;
+  }
+}
+@media (min-width: 0px) and (max-width: 330px) { 
+  .fee-form{
+    width: 250px;
+  }
+}
