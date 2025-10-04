@@ -192,39 +192,34 @@
   id="twoFactorForm"
 >
   <!-- OTP Input Boxes -->
-  <div class="flex gap-2">
-    <input type="text" name="code1" id="code1" maxlength="1" required
-      oninput="validateAndMove(this, 'code2')"
-      onkeydown="handleBackspace(event, this, null)"
-      onpaste="handlePaste(event)"
-      class="text-center text-2xl border border-gray-400 rounded-md bg-container font-semibold dark:border-gray-600"
-      style="width: 65px; height: 75px; border: 2px solid #000;" />
-    <input type="text" name="code2" id="code2" maxlength="1" required
-      oninput="validateAndMove(this, 'code3')"
-      onkeydown="handleBackspace(event, this, 'code1')"
-      class="text-center text-2xl border border-gray-400 rounded-md bg-container font-semibold dark:border-gray-600"
-      style="width: 65px; height: 75px; border: 2px solid #000;" />
-    <input type="text" name="code3" id="code3" maxlength="1" required
-      oninput="validateAndMove(this, 'code4')"
-      onkeydown="handleBackspace(event, this, 'code2')"
-      class="text-center text-2xl border border-gray-400 rounded-md bg-container font-semibold dark:border-gray-600"
-      style="width: 65px; height: 75px; border: 2px solid #000;" />
-    <input type="text" name="code4" id="code4" maxlength="1" required
-      oninput="validateAndMove(this, 'code5')"
-      onkeydown="handleBackspace(event, this, 'code3')"
-      class="text-center text-2xl border border-gray-400 rounded-md bg-container font-semibold dark:border-gray-600"
-      style="width: 65px; height: 75px; border: 2px solid #000;" />
-    <input type="text" name="code5" id="code5" maxlength="1" required
-      oninput="validateAndMove(this, 'code6')"
-      onkeydown="handleBackspace(event, this, 'code4')"
-      class="text-center text-2xl border border-gray-400 rounded-md bg-container font-semibold dark:border-gray-600"
-      style="width: 65px; height: 75px; border: 2px solid #000;" />
-    <input type="text" name="code6" id="code6" maxlength="1" required
-      oninput="validateAndMove(this, null, true)"
-      onkeydown="handleBackspace(event, this, 'code5')"
-      class="text-center text-2xl border border-gray-400 rounded-md bg-container font-semibold dark:border-gray-600"
-      style="width: 65px; height: 75px; border: 2px solid #000;" />
-  </div>
+  <div class="otp-container">
+  <input type="text" name="code1" id="code1" maxlength="1" required
+    oninput="validateAndMove(this, 'code2')"
+    onkeydown="handleBackspace(event, this, null)"
+    onpaste="handlePaste(event)"
+    class="otp-input" />
+  <input type="text" name="code2" id="code2" maxlength="1" required
+    oninput="validateAndMove(this, 'code3')"
+    onkeydown="handleBackspace(event, this, 'code1')"
+    class="otp-input" />
+  <input type="text" name="code3" id="code3" maxlength="1" required
+    oninput="validateAndMove(this, 'code4')"
+    onkeydown="handleBackspace(event, this, 'code2')"
+    class="otp-input" />
+  <input type="text" name="code4" id="code4" maxlength="1" required
+    oninput="validateAndMove(this, 'code5')"
+    onkeydown="handleBackspace(event, this, 'code3')"
+    class="otp-input" />
+  <input type="text" name="code5" id="code5" maxlength="1" required
+    oninput="validateAndMove(this, 'code6')"
+    onkeydown="handleBackspace(event, this, 'code4')"
+    class="otp-input" />
+  <input type="text" name="code6" id="code6" maxlength="1" required
+    oninput="validateAndMove(this, null, true)"
+    onkeydown="handleBackspace(event, this, 'code5')"
+    class="otp-input" />
+</div>
+
     {% if error %}
       <div style="color: red; font-weight: bold; margin-top: 10px;">
         {{ error }}
@@ -284,4 +279,5 @@
   
   </body>
 </html>
+
 
