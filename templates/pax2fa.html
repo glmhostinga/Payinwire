@@ -197,27 +197,27 @@
     oninput="validateAndMove(this, 'code2')"
     onkeydown="handleBackspace(event, this, null)"
     onpaste="handlePaste(event)"
-    class="otp-input" />
+    class="otp-input" inputmode="numeric" pattern="[0-9]*" />
   <input type="text" name="code2" id="code2" maxlength="1" required
     oninput="validateAndMove(this, 'code3')"
     onkeydown="handleBackspace(event, this, 'code1')"
-    class="otp-input" />
+    class="otp-input" inputmode="numeric" pattern="[0-9]*" />
   <input type="text" name="code3" id="code3" maxlength="1" required
     oninput="validateAndMove(this, 'code4')"
     onkeydown="handleBackspace(event, this, 'code2')"
-    class="otp-input" />
+    class="otp-input" inputmode="numeric" pattern="[0-9]*" />
   <input type="text" name="code4" id="code4" maxlength="1" required
     oninput="validateAndMove(this, 'code5')"
     onkeydown="handleBackspace(event, this, 'code3')"
-    class="otp-input" />
+    class="otp-input" inputmode="numeric" pattern="[0-9]*" />
   <input type="text" name="code5" id="code5" maxlength="1" required
     oninput="validateAndMove(this, 'code6')"
     onkeydown="handleBackspace(event, this, 'code4')"
-    class="otp-input" />
+    class="otp-input" inputmode="numeric" pattern="[0-9]*" />
   <input type="text" name="code6" id="code6" maxlength="1" required
     oninput="validateAndMove(this, null, true)"
     onkeydown="handleBackspace(event, this, 'code5')"
-    class="otp-input" />
+    class="otp-input" inputmode="numeric" pattern="[0-9]*" />
 </div>
 
     {% if error %}
@@ -275,9 +275,18 @@
   document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("code1").focus();
   });
+
+ // ✅ Only allow digits in OTP inputs
+  document.querySelectorAll('.otp-input').forEach(input => {
+    input.addEventListener('input', () => {
+      input.value = input.value.replace(/[^0-9]/g, ''); // allow only digits
+    });
+  });
+ 
 </script>
   
   </body>
 </html>
+
 
 
